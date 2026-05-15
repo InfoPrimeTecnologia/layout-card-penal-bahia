@@ -28,6 +28,11 @@ function Index() {
     matricula: "APB-2025-0001",
     cpf: "000.000.000-00",
     rg: "00.000.000-0 SSP/BA",
+    filiacao: "Maria Santos e José Santos",
+    naturalidade: "Salvador/BA",
+    nascimento: "01/01/1985",
+    sangue: "O+",
+    doador: "SIM",
     validade: "12/2028",
     fotoUrl: "",
   });
@@ -101,8 +106,10 @@ function Index() {
             </div>
 
             {/* Preview */}
-            <div className="order-1 lg:order-2 flex justify-center sticky top-8">
-              <MemberCard data={data} variant={variant} />
+            <div className="order-1 lg:order-2 flex flex-col items-center gap-6">
+              <MemberCard data={data} variant={variant} side="front" />
+              <p className="text-xs tracking-[0.3em] text-muted-foreground">VERSO</p>
+              <MemberCard data={data} variant={variant} side="back" />
             </div>
           </div>
         </Tabs>
