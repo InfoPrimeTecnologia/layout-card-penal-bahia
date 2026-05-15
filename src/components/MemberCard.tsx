@@ -82,13 +82,17 @@ function CardShell({
             "radial-gradient(ellipse at center, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.55) 100%)",
         }}
       />
-      {/* faint emblem watermark */}
+      {/* faint emblem watermark — B&W negative */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <img
           src={logo}
           alt=""
-          className="w-[95%] opacity-25"
-          style={{ filter: "drop-shadow(0 0 18px rgba(0,0,0,0.6))" }}
+          className="w-[95%] opacity-30"
+          style={{
+            filter:
+              "grayscale(1) contrast(1.4) brightness(1.6) invert(1) drop-shadow(0 0 18px rgba(0,0,0,0.7))",
+            mixBlendMode: "screen",
+          }}
         />
       </div>
       {/* sheen */}
@@ -132,10 +136,10 @@ function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: b
       >
         PENAL BAHIA
       </h1>
-      <p className="text-[9px] font-semibold tracking-[0.18em] opacity-95 mt-1.5">
+      <p className="text-[10.5px] font-semibold tracking-[0.08em] opacity-95 mt-1.5 whitespace-nowrap">
         ASSOCIAÇÃO DOS POLICIAIS PENAIS
       </p>
-      <p className="text-[9px] font-semibold tracking-[0.18em] opacity-95">
+      <p className="text-[10.5px] font-semibold tracking-[0.08em] opacity-95 whitespace-nowrap">
         E SERVIDORES DO SISTEMA PENITENCIÁRIO
       </p>
       {isOfficer && (
