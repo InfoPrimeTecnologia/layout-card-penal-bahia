@@ -29,7 +29,7 @@ function DigitalCamo({ id }: { id: string }) {
   const rows = 26;
   const tile = 22;
   const shades = ["#1f2227", "#2a2e34", "#353a41", "#42474f", "#22262b"];
-  const rects: JSX.Element[] = [];
+  const rects: React.ReactElement[] = [];
   let seed = 7;
   const rand = () => {
     seed = (seed * 9301 + 49297) % 233280;
