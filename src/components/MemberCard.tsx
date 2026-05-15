@@ -155,9 +155,13 @@ function PBMark() {
 
 function QR({ value, size = 72 }: { value: string; size?: number }) {
   return (
-    <div className="bg-white p-1.5 rounded-md">
-      <QRCodeSVG value={value || "PENAL-BAHIA"} size={size} level="M" />
-    </div>
+    <QRCodeSVG
+      value={value || "PENAL-BAHIA"}
+      size={size}
+      level="M"
+      bgColor="transparent"
+      fgColor="#f5e6b8"
+    />
   );
 }
 
