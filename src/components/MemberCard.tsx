@@ -225,10 +225,10 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             </div>
           )}
         </div>
-        <div className="flex-1 flex flex-col justify-between min-w-0">
+        <div className="flex-1 flex flex-col justify-between items-center min-w-0">
           {isOfficer && data.cargo ? (
             <div
-              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit"
+              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit self-start"
               style={{ background: "var(--gradient-gold)", color: "oklch(0.18 0 0)" }}
             >
               {data.cargo.toUpperCase()}
@@ -236,11 +236,8 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           ) : (
             <span />
           )}
-          <div>
-            <p className="text-[8px] tracking-[0.2em] opacity-70">MATRÍCULA</p>
-            <p className="text-sm font-mono font-semibold">{data.matricula || "—"}</p>
-          </div>
-          <div>
+          <QR value={qrValue} size={110} />
+          <div className="self-stretch">
             <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
             <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
           </div>
