@@ -84,7 +84,12 @@ function CardShell({
       />
       {/* faint emblem watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <img src={logo} alt="" className="w-[85%] opacity-[0.06]" />
+        <img
+          src={logo}
+          alt=""
+          className="w-[95%] opacity-25"
+          style={{ filter: "drop-shadow(0 0 18px rgba(0,0,0,0.6))" }}
+        />
       </div>
       {/* sheen */}
       <div className="absolute inset-0" style={{ background: "var(--gradient-sheen)" }} />
