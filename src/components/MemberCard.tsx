@@ -253,9 +253,6 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
 
       <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between gap-3">
         <p className="text-[7px] tracking-[0.25em] opacity-60">CARTEIRA DE ASSOCIADO</p>
-        <div className="flex-1 flex justify-center">
-          <QR value={qrValue} size={92} />
-        </div>
         <PBMark />
       </div>
     </CardShell>
