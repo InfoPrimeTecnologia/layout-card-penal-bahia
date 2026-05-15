@@ -185,6 +185,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <div className="h-px my-3" style={{ background: "var(--gradient-gold)", opacity: 0.5 }} />
 
         <div className="space-y-3">
+          <Field label="MATRÍCULA" value={data.matricula} />
           <Field label="FILIAÇÃO" value={data.filiacao} />
           <div className="grid grid-cols-2 gap-3">
             <Field label="NATURALIDADE" value={data.naturalidade} />
@@ -195,11 +196,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         </div>
 
         <div className="mt-auto pt-3 border-t border-white/15 flex items-end justify-between gap-3">
-          <div>
-            <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
-            <p className="text-[7px] tracking-[0.25em] opacity-60 mt-1">MAT. {data.matricula || "—"}</p>
-          </div>
-          <QR value={qrValue} size={72} />
+          <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
           <PBMark />
         </div>
       </CardShell>
@@ -225,10 +222,10 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             </div>
           )}
         </div>
-        <div className="flex-1 flex flex-col justify-between min-w-0">
+        <div className="flex-1 flex flex-col justify-between items-center min-w-0">
           {isOfficer && data.cargo ? (
             <div
-              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit"
+              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit self-start"
               style={{ background: "var(--gradient-gold)", color: "oklch(0.18 0 0)" }}
             >
               {data.cargo.toUpperCase()}
@@ -236,11 +233,8 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           ) : (
             <span />
           )}
-          <div>
-            <p className="text-[8px] tracking-[0.2em] opacity-70">MATRÍCULA</p>
-            <p className="text-sm font-mono font-semibold">{data.matricula || "—"}</p>
-          </div>
-          <div>
+          <QR value={qrValue} size={110} />
+          <div className="self-stretch">
             <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
             <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
           </div>
@@ -259,9 +253,6 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
 
       <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between gap-3">
         <p className="text-[7px] tracking-[0.25em] opacity-60">CARTEIRA DE ASSOCIADO</p>
-        <div className="flex-1 flex justify-center">
-          <QR value={qrValue} size={92} />
-        </div>
         <PBMark />
       </div>
     </CardShell>
