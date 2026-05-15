@@ -82,13 +82,17 @@ function CardShell({
             "radial-gradient(ellipse at center, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.55) 100%)",
         }}
       />
-      {/* faint emblem watermark */}
+      {/* faint emblem watermark — B&W negative */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <img
           src={logo}
           alt=""
-          className="w-[95%] opacity-25"
-          style={{ filter: "drop-shadow(0 0 18px rgba(0,0,0,0.6))" }}
+          className="w-[95%] opacity-30"
+          style={{
+            filter:
+              "grayscale(1) contrast(1.4) brightness(1.6) invert(1) drop-shadow(0 0 18px rgba(0,0,0,0.7))",
+            mixBlendMode: "screen",
+          }}
         />
       </div>
       {/* sheen */}
@@ -132,10 +136,10 @@ function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: b
       >
         PENAL BAHIA
       </h1>
-      <p className="text-[9px] font-semibold tracking-[0.18em] opacity-95 mt-1.5">
+      <p className="text-[10.5px] font-semibold tracking-[0.08em] opacity-95 mt-1.5 whitespace-nowrap">
         ASSOCIAÇÃO DOS POLICIAIS PENAIS
       </p>
-      <p className="text-[9px] font-semibold tracking-[0.18em] opacity-95">
+      <p className="text-[10.5px] font-semibold tracking-[0.08em] opacity-95 whitespace-nowrap">
         E SERVIDORES DO SISTEMA PENITENCIÁRIO
       </p>
       {isOfficer && (
@@ -236,7 +240,10 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             <p className="text-[8px] tracking-[0.2em] opacity-70">MATRÍCULA</p>
             <p className="text-sm font-mono font-semibold">{data.matricula || "—"}</p>
           </div>
-          <QR value={qrValue} size={56} />
+          <div>
+            <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
+            <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
+          </div>
         </div>
       </div>
 
@@ -248,13 +255,13 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
       <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-2">
         <Field label="CPF" value={data.cpf} />
         <Field label="RG" value={data.rg} />
-        <div className="col-span-2">
-          <Field label="VÁLIDA ATÉ" value={data.validade} />
-        </div>
       </div>
 
-      <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between">
+      <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between gap-3">
         <p className="text-[7px] tracking-[0.25em] opacity-60">CARTEIRA DE ASSOCIADO</p>
+        <div className="flex-1 flex justify-center">
+          <QR value={qrValue} size={92} />
+        </div>
         <PBMark />
       </div>
     </CardShell>
