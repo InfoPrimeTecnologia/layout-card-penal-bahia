@@ -1,3 +1,4 @@
+import { QRCodeSVG } from "qrcode.react";
 import logo from "@/assets/logo-penal-bahia.png";
 
 export interface CardData {
@@ -21,6 +22,43 @@ interface Props {
   side?: "front" | "back";
 }
 
+/** Deterministic digital-camo style pattern in shades of gray */
+function DigitalCamo({ id }: { id: string }) {
+  // pseudo-random but deterministic 16x26 grid of gray tiles
+  const cols = 16;
+  const rows = 26;
+  const tile = 22;
+  const shades = ["#1f2227", "#2a2e34", "#353a41", "#42474f", "#22262b"];
+  const rects: JSX.Element[] = [];
+  let seed = 7;
+  const rand = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const c = shades[Math.floor(rand() * shades.length)];
+      rects.push(<rect key={`${x}-${y}`} x={x * tile} y={y * tile} width={tile} height={tile} fill={c} />);
+    }
+  }
+  // small accent pixels
+  for (let i = 0; i < 60; i++) {
+    const x = Math.floor(rand() * cols) * tile;
+    const y = Math.floor(rand() * rows) * tile;
+    rects.push(<rect key={`a-${i}`} x={x} y={y} width={tile / 2} height={tile / 2} fill="#4a4f57" />);
+  }
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full"
+      viewBox={`0 0 ${cols * tile} ${rows * tile}`}
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden
+    >
+      <g id={id}>{rects}</g>
+    </svg>
+  );
+}
+
 function CardShell({
   isOfficer,
   variant,
@@ -32,25 +70,29 @@ function CardShell({
 }) {
   return (
     <div className="relative w-[340px] h-[540px] rounded-3xl overflow-hidden shadow-[var(--shadow-card)] font-sans">
+      {/* base dark gray */}
+      <div className="absolute inset-0" style={{ background: "#1a1d22" }} />
+      {/* digital camo */}
+      <DigitalCamo id={`camo-${variant}`} />
+      {/* darken vignette */}
       <div
         className="absolute inset-0"
-        style={{ background: isOfficer ? "var(--gradient-card-officer)" : "var(--gradient-card)" }}
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.55) 100%)",
+        }}
       />
-      <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id={`g-${variant}`} x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-            <circle cx="40" cy="40" r="38" fill="none" stroke="white" strokeWidth="0.4" />
-            <circle cx="40" cy="40" r="28" fill="none" stroke="white" strokeWidth="0.4" />
-            <circle cx="40" cy="40" r="18" fill="none" stroke="white" strokeWidth="0.4" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#g-${variant})`} />
-      </svg>
+      {/* faint emblem watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <img src={logo} alt="" className="w-[85%] opacity-[0.05]" />
+        <img src={logo} alt="" className="w-[85%] opacity-[0.06]" />
       </div>
+      {/* sheen */}
       <div className="absolute inset-0" style={{ background: "var(--gradient-sheen)" }} />
-      <div className="absolute top-0 left-0 right-0 h-1.5" style={{ background: "var(--gradient-gold)" }} />
+      {/* gold top bar — slightly thicker for officer */}
+      <div
+        className="absolute top-0 left-0 right-0"
+        style={{ height: isOfficer ? 8 : 4, background: "var(--gradient-gold)" }}
+      />
       <div className="relative h-full flex flex-col p-5 text-white">{children}</div>
     </div>
   );
@@ -85,7 +127,9 @@ function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: b
       >
         PENAL BAHIA
       </h1>
-      <p className="text-[8px] tracking-[0.2em] opacity-70 mt-1.5">ASSOCIAÇÃO DOS POLICIAIS PENAIS</p>
+      <p className="text-[9px] font-semibold tracking-[0.18em] opacity-95 mt-1.5">
+        ASSOCIAÇÃO DOS POLICIAIS PENAIS
+      </p>
       <p className="text-[9px] font-semibold tracking-[0.18em] opacity-95">
         E SERVIDORES DO SISTEMA PENITENCIÁRIO
       </p>
@@ -101,8 +145,25 @@ function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: b
   );
 }
 
+function PBMark() {
+  return (
+    <p className="text-lg font-black tracking-widest" style={{ color: "oklch(0.85 0.14 85)" }}>
+      PB
+    </p>
+  );
+}
+
+function QR({ value, size = 72 }: { value: string; size?: number }) {
+  return (
+    <div className="bg-white p-1.5 rounded-md">
+      <QRCodeSVG value={value || "PENAL-BAHIA"} size={size} level="M" />
+    </div>
+  );
+}
+
 export function MemberCard({ data, variant, side = "front" }: Props) {
   const isOfficer = variant === "officer";
+  const qrValue = `APB|${data.matricula || "—"}|${data.nome || ""}|${data.cpf || ""}`;
 
   if (side === "back") {
     return (
@@ -117,16 +178,16 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             <Field label="NASCIMENTO" value={data.nascimento} />
             <Field label="G. SANGUÍNEO" value={data.sangue} />
             <Field label="DOADOR" value={data.doador} />
-            <Field label="MATRÍCULA" value={data.matricula} />
-            <Field label="CPF" value={data.cpf} />
           </div>
         </div>
 
-        <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between">
-          <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
-          <p className="text-lg font-black tracking-widest" style={{ color: "oklch(0.85 0.14 85)" }}>
-            APB
-          </p>
+        <div className="mt-auto pt-3 border-t border-white/15 flex items-end justify-between gap-3">
+          <div>
+            <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
+            <p className="text-[7px] tracking-[0.25em] opacity-60 mt-1">MAT. {data.matricula || "—"}</p>
+          </div>
+          <QR value={qrValue} size={72} />
+          <PBMark />
         </div>
       </CardShell>
     );
@@ -151,17 +212,22 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             </div>
           )}
         </div>
-        <div className="flex-1 flex flex-col justify-end min-w-0">
-          {isOfficer && data.cargo && (
+        <div className="flex-1 flex flex-col justify-between min-w-0">
+          {isOfficer && data.cargo ? (
             <div
-              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider mb-2 inline-block w-fit"
+              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit"
               style={{ background: "var(--gradient-gold)", color: "oklch(0.18 0 0)" }}
             >
               {data.cargo.toUpperCase()}
             </div>
+          ) : (
+            <span />
           )}
-          <p className="text-[8px] tracking-[0.2em] opacity-70">MATRÍCULA</p>
-          <p className="text-sm font-mono font-semibold">{data.matricula || "—"}</p>
+          <div>
+            <p className="text-[8px] tracking-[0.2em] opacity-70">MATRÍCULA</p>
+            <p className="text-sm font-mono font-semibold">{data.matricula || "—"}</p>
+          </div>
+          <QR value={qrValue} size={56} />
         </div>
       </div>
 
@@ -180,9 +246,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
 
       <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between">
         <p className="text-[7px] tracking-[0.25em] opacity-60">CARTEIRA DE ASSOCIADO</p>
-        <p className="text-lg font-black tracking-widest" style={{ color: "oklch(0.85 0.14 85)" }}>
-          APB
-        </p>
+        <PBMark />
       </div>
     </CardShell>
   );
