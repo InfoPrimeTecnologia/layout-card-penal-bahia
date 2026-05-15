@@ -196,11 +196,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         </div>
 
         <div className="mt-auto pt-3 border-t border-white/15 flex items-end justify-between gap-3">
-          <div>
-            <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
-            <p className="text-[7px] tracking-[0.25em] opacity-60 mt-1">MAT. {data.matricula || "—"}</p>
-          </div>
-          <QR value={qrValue} size={72} />
+          <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
           <PBMark />
         </div>
       </CardShell>
