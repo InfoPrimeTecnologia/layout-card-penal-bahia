@@ -222,28 +222,28 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             </div>
           )}
         </div>
-        <div className="flex-1 flex flex-col justify-between items-center min-w-0">
+        <div className="flex-1 flex flex-col items-center justify-center min-w-0">
           {isOfficer && data.cargo ? (
             <div
-              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit self-start"
+              className="px-2 py-1 rounded text-[9px] font-bold tracking-wider inline-block w-fit self-start mb-1"
               style={{ background: "var(--gradient-gold)", color: "oklch(0.18 0 0)" }}
             >
               {data.cargo.toUpperCase()}
             </div>
-          ) : (
-            <span />
-          )}
-          <QR value={qrValue} size={110} />
-          <div className="self-stretch">
-            <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
-            <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
-          </div>
+          ) : null}
+          <QR value={qrValue} size={126} />
         </div>
       </div>
 
-      <div className="mt-3">
-        <p className="text-[8px] tracking-[0.2em] opacity-70">NOME</p>
-        <p className="text-sm font-bold leading-tight uppercase">{data.nome || "—"}</p>
+      <div className="mt-3 flex items-end justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          <p className="text-[8px] tracking-[0.2em] opacity-70">NOME</p>
+          <p className="text-sm font-bold leading-tight uppercase truncate">{data.nome || "—"}</p>
+        </div>
+        <div className="text-right flex-shrink-0">
+          <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
+          <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-2">
