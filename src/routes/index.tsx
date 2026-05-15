@@ -106,8 +106,10 @@ function Index() {
             </div>
 
             {/* Preview */}
-            <div className="order-1 lg:order-2 flex justify-center sticky top-8">
-              <MemberCard data={data} variant={variant} />
+            <div className="order-1 lg:order-2 flex flex-col items-center gap-6">
+              <MemberCard data={data} variant={variant} side="front" />
+              <p className="text-xs tracking-[0.3em] text-muted-foreground">VERSO</p>
+              <MemberCard data={data} variant={variant} side="back" />
             </div>
           </div>
         </Tabs>
