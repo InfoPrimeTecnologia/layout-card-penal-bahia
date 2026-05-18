@@ -224,15 +224,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             </div>
           )}
         </div>
-        <div className="flex-1 flex items-center justify-center min-w-0 relative">
-          {isOfficer && data.cargo ? (
-            <div
-              className="absolute -top-1 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[8px] font-bold tracking-wider whitespace-nowrap z-10"
-              style={{ background: "var(--gradient-gold)", color: "oklch(0.18 0 0)" }}
-            >
-              {data.cargo.toUpperCase()}
-            </div>
-          ) : null}
+        <div className="flex-1 flex items-center justify-center min-w-0">
           <QR value={qrValue} size={126} />
         </div>
       </div>
