@@ -118,8 +118,8 @@ function Field({ label, value }: { label: string; value?: string }) {
 
 function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: boolean }) {
   return (
-    <div className="flex flex-col items-center text-center">
-      <div className="relative">
+    <div className="flex items-center gap-3">
+      <div className="relative flex-shrink-0">
         <div
           className="absolute inset-0 rounded-full blur-xl opacity-40"
           style={{ background: "var(--gradient-gold)" }}
@@ -127,37 +127,39 @@ function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: b
         <img
           src={logo}
           alt="Penal Bahia"
-          className={`relative ${compact ? "w-20 h-20" : "w-28 h-28"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
+          className={`relative ${compact ? "w-24 h-24" : "w-32 h-32"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
-      <h1
-        className={`${compact ? "text-xl" : "text-2xl"} font-black tracking-[0.18em] mt-2 leading-none`}
-        style={{ color: "oklch(0.92 0.13 85)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
-      >
-        PENAL BAHIA
-      </h1>
-      <p className="text-[10.5px] font-semibold tracking-[0.08em] opacity-95 mt-1.5 whitespace-nowrap">
-        ASSOCIAÇÃO DOS POLICIAIS PENAIS
-      </p>
-      <p className="text-[10.5px] font-semibold tracking-[0.08em] opacity-95 whitespace-nowrap">
-        E SERVIDORES DO SISTEMA PENITENCIÁRIO
-      </p>
-      {isOfficer && (
-        <p
-          className="text-[10px] font-bold tracking-[0.3em] mt-1.5"
-          style={{ color: "oklch(0.85 0.14 85)" }}
+      <div className="flex-1 min-w-0">
+        <h1
+          className={`${compact ? "text-base" : "text-lg"} font-black tracking-[0.14em] leading-none`}
+          style={{ color: "oklch(0.92 0.13 85)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
         >
-          DIRETORIA
+          PENAL BAHIA
+        </h1>
+        <p
+          className="text-[10px] font-semibold tracking-[0.04em] opacity-95 mt-1.5 leading-snug"
+          style={{ textAlign: "justify", textAlignLast: "justify" }}
+        >
+          Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
         </p>
-      )}
+        {isOfficer && (
+          <p
+            className="text-[10px] font-bold tracking-[0.3em] mt-1.5"
+            style={{ color: "oklch(0.85 0.14 85)" }}
+          >
+            DIRIGENTES
+          </p>
+        )}
+      </div>
     </div>
   );
 }
 
 function PBMark() {
   return (
-    <p className="text-lg font-black tracking-widest" style={{ color: "oklch(0.85 0.14 85)" }}>
-      PB
+    <p className="text-sm font-black tracking-[0.18em]" style={{ color: "oklch(0.85 0.14 85)" }}>
+      PENAL BAHIA
     </p>
   );
 }
