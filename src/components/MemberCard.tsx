@@ -246,10 +246,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <Field label="RG" value={data.rg} />
       </div>
 
-      <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between gap-3">
-        <p className="text-[7px] tracking-[0.25em] opacity-60">
-          {isOfficer ? "DIRIGENTES" : "CARTEIRA DE ASSOCIADO"}
-        </p>
+      <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
         <PBMark />
       </div>
     </CardShell>
