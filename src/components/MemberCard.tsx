@@ -242,7 +242,9 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
       </div>
 
       <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-between gap-3">
-        <p className="text-[7px] tracking-[0.25em] opacity-60">CARTEIRA DE ASSOCIADO</p>
+        <p className="text-[7px] tracking-[0.25em] opacity-60">
+          {isOfficer ? "DIRIGENTES" : "CARTEIRA DE ASSOCIADO"}
+        </p>
         <PBMark />
       </div>
     </CardShell>
