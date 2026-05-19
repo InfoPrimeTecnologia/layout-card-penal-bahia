@@ -116,7 +116,7 @@ function Field({ label, value }: { label: string; value?: string }) {
   );
 }
 
-function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: boolean }) {
+function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) {
   return (
     <div className="flex items-center gap-3">
       <div className="relative flex-shrink-0">
@@ -131,26 +131,19 @@ function Brand({ isOfficer, compact = false }: { isOfficer: boolean; compact?: b
         />
       </div>
       <div className="flex-1 min-w-0">
-        <h1
-          className={`${compact ? "text-base" : "text-lg"} font-black tracking-[0.14em] leading-none`}
-          style={{ color: "oklch(0.92 0.13 85)", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
-        >
-          PENAL BAHIA
-        </h1>
         <p
-          className="text-[10px] font-semibold tracking-[0.04em] opacity-95 mt-1.5 leading-snug"
+          className={`${compact ? "text-[11px]" : "text-[13px]"} font-semibold leading-[1.15]`}
           style={{ textAlign: "justify", textAlignLast: "justify" }}
         >
-          Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
-        </p>
-        {isOfficer && (
-          <p
-            className="text-[10px] font-bold tracking-[0.3em] mt-1.5"
-            style={{ color: "oklch(0.85 0.14 85)" }}
+          Associação dos{" "}
+          <span
+            className="font-black uppercase"
+            style={{ color: "oklch(0.88 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
           >
-            DIRIGENTES
-          </p>
-        )}
+            Policiais Penais
+          </span>{" "}
+          e servidores do sistema penitenciário do estado da Bahia
+        </p>
       </div>
     </div>
   );
