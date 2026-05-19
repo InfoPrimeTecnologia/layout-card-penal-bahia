@@ -180,8 +180,13 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <div className="h-px my-3" style={{ background: "var(--gradient-gold)", opacity: 0.5 }} />
 
         <div className="space-y-3">
-          {isOfficer && data.cargo ? (
-            <Field label="CARGO" value={data.cargo} />
+          {isOfficer ? (
+            <div>
+              <p className="text-[8px] tracking-[0.3em] opacity-80" style={{ color: "oklch(0.85 0.14 85)" }}>
+                DIRIGENTES
+              </p>
+              <Field label="CARGO" value={data.cargo} />
+            </div>
           ) : null}
           <Field label="MATRÍCULA" value={data.matricula} />
           <Field label="FILIAÇÃO" value={data.filiacao} />
