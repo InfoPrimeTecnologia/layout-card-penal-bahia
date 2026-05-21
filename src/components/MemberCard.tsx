@@ -132,8 +132,7 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
       </div>
       <div className="flex-1 min-w-0">
         <p
-          className={`${compact ? "text-[11px]" : "text-[13px]"} font-semibold leading-[1.15]`}
-          style={{ textAlign: "justify", textAlignLast: "justify" }}
+          className={`${compact ? "text-[12px]" : "text-[14px]"} font-semibold leading-[1.2]`}
         >
           Associação dos{" "}
           <span
@@ -182,7 +181,10 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <div className="space-y-3">
           {isOfficer ? (
             <div>
-              <p className="text-[8px] tracking-[0.3em] opacity-80" style={{ color: "oklch(0.85 0.14 85)" }}>
+              <p
+                className="text-center text-base font-black tracking-[0.35em] mb-2"
+                style={{ color: "oklch(0.85 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+              >
                 DIRIGENTES
               </p>
               <Field label="CARGO" value={data.cargo} />
