@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Penal Bahia" },
+      { name: "description", content: "Generates modern membership cards for the Penal Bahia Association with distinct designs for members and officers." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Penal Bahia" },
+      { property: "og:description", content: "Generates modern membership cards for the Penal Bahia Association with distinct designs for members and officers." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Penal Bahia" },
+      { name: "twitter:description", content: "Generates modern membership cards for the Penal Bahia Association with distinct designs for members and officers." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5e332d21-8df5-49c9-bb87-6b81a514ad12/id-preview-2655166d--e6a31a34-8752-423a-8193-03b6fdd1dea4.lovable.app-1780345005331.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5e332d21-8df5-49c9-bb87-6b81a514ad12/id-preview-2655166d--e6a31a34-8752-423a-8193-03b6fdd1dea4.lovable.app-1780345005331.png" },
     ],
     links: [
       {
