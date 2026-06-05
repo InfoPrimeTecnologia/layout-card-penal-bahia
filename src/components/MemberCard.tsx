@@ -4,6 +4,7 @@ import logo from "@/assets/logo-penal-bahia.png";
 export interface CardData {
   nome: string;
   cargo?: string;
+  unidade?: string;
   matricula: string;
   cpf: string;
   rg: string;
@@ -110,11 +111,23 @@ function CardShell({
 function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div>
-      <p className="text-[8px] tracking-[0.2em] opacity-70">{label}</p>
-      <p className="text-xs font-mono">{value || "—"}</p>
+      <p className="text-[8px] tracking-[0.2em] opacity-70 font-bold">{label}</p>
+      <p className="text-xs font-mono font-bold">{value || "—"}</p>
     </div>
   );
 }
+
+function PBMark({ size = "sm" }: { size?: "sm" | "lg" }) {
+  return (
+    <p
+      className={`${size === "lg" ? "text-xl" : "text-sm"} font-black tracking-[0.18em]`}
+      style={{ color: "oklch(0.85 0.14 85)" }}
+    >
+      PENAL BAHIA
+    </p>
+  );
+}
+
 
 function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) {
   return (
@@ -148,13 +161,6 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
   );
 }
 
-function PBMark() {
-  return (
-    <p className="text-sm font-black tracking-[0.18em]" style={{ color: "oklch(0.85 0.14 85)" }}>
-      PENAL BAHIA
-    </p>
-  );
-}
 
 function QR({ value, size = 72 }: { value: string; size?: number }) {
   return (
@@ -182,12 +188,12 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           {isOfficer ? (
             <div>
               <p
-                className="text-center text-base font-black tracking-[0.35em] mb-2"
+                className="text-center text-sm font-black tracking-[0.25em] mb-2"
                 style={{ color: "oklch(0.85 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
-                DIRIGENTES
+                REPRESENTANTE INSTITUCIONAL
               </p>
-              <Field label="CARGO" value={data.cargo} />
+              <Field label="FUNÇÃO/CARGO" value={data.cargo} />
             </div>
           ) : null}
           <Field label="MATRÍCULA" value={data.matricula} />
@@ -198,11 +204,11 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             <Field label="G. SANGUÍNEO" value={data.sangue} />
             <Field label="DOADOR" value={data.doador} />
           </div>
+          <Field label="VALIDADE" value={data.validade} />
         </div>
 
-        <div className="mt-auto pt-3 border-t border-white/15 flex items-end justify-between gap-3">
-          <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
-          <PBMark />
+        <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
+          <PBMark size="lg" />
         </div>
       </CardShell>
     );
@@ -232,15 +238,8 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         </div>
       </div>
 
-      <div className="mt-3 flex items-end justify-between gap-3">
-        <div className="min-w-0 flex-1">
-          <p className="text-[8px] tracking-[0.2em] opacity-70">NOME</p>
-          <p className="text-sm font-bold leading-tight uppercase truncate">{data.nome || "—"}</p>
-        </div>
-        <div className="text-right flex-shrink-0">
-          <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
-          <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
-        </div>
+      <div className="mt-3">
+        <Field label="NOME" value={data.nome?.toUpperCase()} />
       </div>
 
       <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-2">
@@ -248,8 +247,18 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <Field label="RG" value={data.rg} />
       </div>
 
-      <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
-        <PBMark />
+      <div className="mt-2">
+        <Field label="UNIDADE" value={data.unidade} />
+      </div>
+
+      <div className="mt-auto pt-3 border-t border-white/15 flex flex-col items-center gap-1">
+        <p
+          className="text-[9px] tracking-[0.2em] text-center font-semibold"
+          style={{ color: "oklch(0.85 0.14 85)" }}
+        >
+          VÁLIDA EM TODO TERRITÓRIO NACIONAL
+        </p>
+        <PBMark size="lg" />
       </div>
     </CardShell>
   );

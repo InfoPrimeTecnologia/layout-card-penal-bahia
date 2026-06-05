@@ -34,6 +34,7 @@ function Index() {
     sangue: "O+",
     doador: "SIM",
     validade: "12/2028",
+    unidade: "Conjunto Penal de Eunápolis",
     fotoUrl: "",
   });
 
@@ -95,6 +96,11 @@ function Index() {
                   <Label htmlFor="rg">RG / Órgão</Label>
                   <Input id="rg" value={data.rg} onChange={(e) => setData({ ...data, rg: e.target.value })} />
                 </div>
+              </div>
+
+              <div>
+                <Label htmlFor="unidade">Unidade</Label>
+                <Input id="unidade" value={data.unidade} onChange={(e) => setData({ ...data, unidade: e.target.value })} />
               </div>
 
               <div>
