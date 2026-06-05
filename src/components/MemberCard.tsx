@@ -117,10 +117,11 @@ function Field({ label, value }: { label: string; value?: string }) {
   );
 }
 
-function PBMark({ size = "sm" }: { size?: "sm" | "lg" }) {
+function PBMark({ size = "sm" }: { size?: "sm" | "lg" | "xl" }) {
+  const cls = size === "xl" ? "text-3xl" : size === "lg" ? "text-xl" : "text-sm";
   return (
     <p
-      className={`${size === "lg" ? "text-xl" : "text-sm"} font-black tracking-[0.18em]`}
+      className={`${cls} font-black tracking-[0.18em]`}
       style={{ color: "oklch(0.85 0.14 85)" }}
     >
       PENAL BAHIA
