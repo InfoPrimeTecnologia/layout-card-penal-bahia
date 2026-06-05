@@ -252,14 +252,16 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <Field label="UNIDADE" value={data.unidade} />
       </div>
 
-      <div className="mt-auto pt-3 border-t border-white/15 flex flex-col items-center gap-1">
+      <div className="mt-auto flex flex-col items-center">
         <p
-          className="text-[9px] tracking-[0.2em] text-center font-semibold"
+          className="text-[10px] tracking-[0.2em] text-center font-semibold pb-2"
           style={{ color: "oklch(0.85 0.14 85)" }}
         >
           VÁLIDA EM TODO TERRITÓRIO NACIONAL
         </p>
-        <PBMark size="lg" />
+        <div className="w-full border-t border-white/15 pt-2 flex justify-center">
+          <PBMark size="xl" />
+        </div>
       </div>
     </CardShell>
   );
