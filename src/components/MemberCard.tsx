@@ -4,6 +4,7 @@ import logo from "@/assets/logo-penal-bahia.png";
 export interface CardData {
   nome: string;
   cargo?: string;
+  unidade?: string;
   matricula: string;
   cpf: string;
   rg: string;
