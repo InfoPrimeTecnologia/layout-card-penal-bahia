@@ -131,7 +131,7 @@ function PBMark({ size = "sm" }: { size?: "sm" | "lg" }) {
 
 function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-stretch gap-3">
       <div className="relative flex-shrink-0">
         <div
           className="absolute inset-0 rounded-full blur-xl opacity-40"
@@ -143,18 +143,18 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
           className={`relative ${compact ? "w-24 h-24" : "w-32 h-32"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 flex items-center">
         <p
-          className={`${compact ? "text-[12px]" : "text-[14px]"} font-semibold leading-[1.2]`}
+          className={`${compact ? "text-[11px]" : "text-[12px]"} font-black uppercase leading-[1.15] w-full`}
+          style={{
+            color: "oklch(0.88 0.14 85)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+            textAlign: "justify",
+            textAlignLast: "justify",
+            wordSpacing: "-0.05em",
+          }}
         >
-          Associação dos{" "}
-          <span
-            className="font-black uppercase"
-            style={{ color: "oklch(0.88 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
-          >
-            Policiais Penais
-          </span>{" "}
-          e servidores do sistema penitenciário do estado da Bahia
+          Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
         </p>
       </div>
     </div>
