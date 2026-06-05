@@ -209,7 +209,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         </div>
 
         <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
-          <PBMark size="lg" />
+          <PBMark size="xl" />
         </div>
       </CardShell>
     );
