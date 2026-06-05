@@ -117,10 +117,11 @@ function Field({ label, value }: { label: string; value?: string }) {
   );
 }
 
-function PBMark({ size = "sm" }: { size?: "sm" | "lg" }) {
+function PBMark({ size = "sm" }: { size?: "sm" | "lg" | "xl" }) {
+  const cls = size === "xl" ? "text-3xl" : size === "lg" ? "text-xl" : "text-sm";
   return (
     <p
-      className={`${size === "lg" ? "text-xl" : "text-sm"} font-black tracking-[0.18em]`}
+      className={`${cls} font-black tracking-[0.18em]`}
       style={{ color: "oklch(0.85 0.14 85)" }}
     >
       PENAL BAHIA
@@ -131,7 +132,7 @@ function PBMark({ size = "sm" }: { size?: "sm" | "lg" }) {
 
 function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-stretch gap-3">
       <div className="relative flex-shrink-0">
         <div
           className="absolute inset-0 rounded-full blur-xl opacity-40"
@@ -143,18 +144,18 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
           className={`relative ${compact ? "w-24 h-24" : "w-32 h-32"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 flex items-center">
         <p
-          className={`${compact ? "text-[12px]" : "text-[14px]"} font-semibold leading-[1.2]`}
+          className={`${compact ? "text-[11px]" : "text-[12px]"} font-black uppercase leading-[1.15] w-full`}
+          style={{
+            color: "oklch(0.88 0.14 85)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+            textAlign: "justify",
+            textAlignLast: "justify",
+            wordSpacing: "-0.05em",
+          }}
         >
-          Associação dos{" "}
-          <span
-            className="font-black uppercase"
-            style={{ color: "oklch(0.88 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
-          >
-            Policiais Penais
-          </span>{" "}
-          e servidores do sistema penitenciário do estado da Bahia
+          Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
         </p>
       </div>
     </div>
@@ -188,7 +189,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           {isOfficer ? (
             <div>
               <p
-                className="text-center text-sm font-black tracking-[0.25em] mb-2"
+                className="text-center text-[11px] font-black tracking-[0.2em] mb-2 whitespace-nowrap"
                 style={{ color: "oklch(0.85 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
                 REPRESENTANTE INSTITUCIONAL
@@ -208,7 +209,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         </div>
 
         <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
-          <PBMark size="lg" />
+          <PBMark size="xl" />
         </div>
       </CardShell>
     );
@@ -251,14 +252,16 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <Field label="UNIDADE" value={data.unidade} />
       </div>
 
-      <div className="mt-auto pt-3 border-t border-white/15 flex flex-col items-center gap-1">
+      <div className="mt-auto flex flex-col items-center">
         <p
-          className="text-[9px] tracking-[0.2em] text-center font-semibold"
+          className="text-[10px] tracking-[0.2em] text-center font-semibold pb-2"
           style={{ color: "oklch(0.85 0.14 85)" }}
         >
           VÁLIDA EM TODO TERRITÓRIO NACIONAL
         </p>
-        <PBMark size="lg" />
+        <div className="w-full border-t border-white/15 pt-2 flex justify-center">
+          <PBMark size="xl" />
+        </div>
       </div>
     </CardShell>
   );
