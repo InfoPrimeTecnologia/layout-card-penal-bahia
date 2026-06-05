@@ -188,7 +188,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           {isOfficer ? (
             <div>
               <p
-                className="text-center text-sm font-black tracking-[0.25em] mb-2"
+                className="text-center text-[11px] font-black tracking-[0.2em] mb-2 whitespace-nowrap"
                 style={{ color: "oklch(0.85 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
                 REPRESENTANTE INSTITUCIONAL
