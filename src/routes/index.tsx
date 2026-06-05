@@ -99,6 +99,11 @@ function Index() {
               </div>
 
               <div>
+                <Label htmlFor="unidade">Unidade</Label>
+                <Input id="unidade" value={data.unidade} onChange={(e) => setData({ ...data, unidade: e.target.value })} />
+              </div>
+
+              <div>
                 <Label htmlFor="foto">Foto</Label>
                 <Input id="foto" type="file" accept="image/*" onChange={handleFoto} />
               </div>
