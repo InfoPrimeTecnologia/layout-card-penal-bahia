@@ -161,13 +161,6 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
   );
 }
 
-function PBMark() {
-  return (
-    <p className="text-sm font-black tracking-[0.18em]" style={{ color: "oklch(0.85 0.14 85)" }}>
-      PENAL BAHIA
-    </p>
-  );
-}
 
 function QR({ value, size = 72 }: { value: string; size?: number }) {
   return (
