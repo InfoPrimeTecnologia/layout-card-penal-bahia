@@ -111,11 +111,23 @@ function CardShell({
 function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div>
-      <p className="text-[8px] tracking-[0.2em] opacity-70">{label}</p>
-      <p className="text-xs font-mono">{value || "—"}</p>
+      <p className="text-[8px] tracking-[0.2em] opacity-70 font-bold">{label}</p>
+      <p className="text-xs font-mono font-bold">{value || "—"}</p>
     </div>
   );
 }
+
+function PBMark({ size = "sm" }: { size?: "sm" | "lg" }) {
+  return (
+    <p
+      className={`${size === "lg" ? "text-xl" : "text-sm"} font-black tracking-[0.18em]`}
+      style={{ color: "oklch(0.85 0.14 85)" }}
+    >
+      PENAL BAHIA
+    </p>
+  );
+}
+
 
 function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) {
   return (
