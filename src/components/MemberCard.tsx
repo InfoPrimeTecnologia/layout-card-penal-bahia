@@ -188,12 +188,12 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           {isOfficer ? (
             <div>
               <p
-                className="text-center text-base font-black tracking-[0.35em] mb-2"
+                className="text-center text-sm font-black tracking-[0.25em] mb-2"
                 style={{ color: "oklch(0.85 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
-                DIRIGENTES
+                REPRESENTANTE INSTITUCIONAL
               </p>
-              <Field label="CARGO" value={data.cargo} />
+              <Field label="FUNÇÃO/CARGO" value={data.cargo} />
             </div>
           ) : null}
           <Field label="MATRÍCULA" value={data.matricula} />
@@ -204,11 +204,11 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             <Field label="G. SANGUÍNEO" value={data.sangue} />
             <Field label="DOADOR" value={data.doador} />
           </div>
+          <Field label="VALIDADE" value={data.validade} />
         </div>
 
-        <div className="mt-auto pt-3 border-t border-white/15 flex items-end justify-between gap-3">
-          <p className="text-[7px] tracking-[0.25em] opacity-60">VÁLIDA ATÉ {data.validade || "—"}</p>
-          <PBMark />
+        <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
+          <PBMark size="lg" />
         </div>
       </CardShell>
     );
