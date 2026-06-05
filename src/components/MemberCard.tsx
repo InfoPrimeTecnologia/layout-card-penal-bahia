@@ -238,15 +238,8 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         </div>
       </div>
 
-      <div className="mt-3 flex items-end justify-between gap-3">
-        <div className="min-w-0 flex-1">
-          <p className="text-[8px] tracking-[0.2em] opacity-70">NOME</p>
-          <p className="text-sm font-bold leading-tight uppercase truncate">{data.nome || "—"}</p>
-        </div>
-        <div className="text-right flex-shrink-0">
-          <p className="text-[8px] tracking-[0.2em] opacity-70">VÁLIDA ATÉ</p>
-          <p className="text-sm font-mono font-semibold">{data.validade || "—"}</p>
-        </div>
+      <div className="mt-3">
+        <Field label="NOME" value={data.nome?.toUpperCase()} />
       </div>
 
       <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-2">
@@ -254,8 +247,18 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
         <Field label="RG" value={data.rg} />
       </div>
 
-      <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
-        <PBMark />
+      <div className="mt-2">
+        <Field label="UNIDADE" value={data.unidade} />
+      </div>
+
+      <div className="mt-auto pt-3 border-t border-white/15 flex flex-col items-center gap-1">
+        <p
+          className="text-[9px] tracking-[0.2em] text-center font-semibold"
+          style={{ color: "oklch(0.85 0.14 85)" }}
+        >
+          VÁLIDA EM TODO TERRITÓRIO NACIONAL
+        </p>
+        <PBMark size="lg" />
       </div>
     </CardShell>
   );
