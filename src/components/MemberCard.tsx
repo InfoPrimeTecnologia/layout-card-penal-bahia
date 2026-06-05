@@ -112,7 +112,7 @@ function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div>
       <p className="text-[8px] tracking-[0.2em] opacity-70 font-bold">{label}</p>
-      <p className="text-xs font-mono font-bold">{value || "—"}</p>
+      <p className="text-xs font-mono">{value || "—"}</p>
     </div>
   );
 }
