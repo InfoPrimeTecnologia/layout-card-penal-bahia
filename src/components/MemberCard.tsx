@@ -130,7 +130,26 @@ function PBMark({ size = "sm" }: { size?: "sm" | "lg" | "xl" }) {
 }
 
 
-function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) {
+function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; compact?: boolean; textOnly?: boolean }) {
+  if (textOnly) {
+    return (
+      <div className="w-full">
+        <p
+          className="text-[15px] font-black uppercase leading-[1.15] w-full"
+          style={{
+            color: "oklch(0.88 0.14 85)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+            textAlign: "justify",
+            textAlignLast: "justify",
+            wordSpacing: "-0.04em",
+            letterSpacing: "-0.005em",
+          }}
+        >
+          Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
+        </p>
+      </div>
+    );
+  }
   return (
     <div className="flex items-stretch gap-3">
       <div className="relative flex-shrink-0">
@@ -150,7 +169,9 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            wordSpacing: "-0.08em",
+            textAlign: "justify",
+            textAlignLast: "justify",
+            wordSpacing: "-0.06em",
             letterSpacing: "-0.01em",
           }}
         >
@@ -160,6 +181,7 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
     </div>
   );
 }
+
 
 
 function QR({ value, size = 72 }: { value: string; size?: number }) {
