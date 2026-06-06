@@ -158,12 +158,12 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
         <img
           src={logo}
           alt="Penal Bahia"
-          className={`relative ${compact ? "w-16 h-16" : "w-20 h-20"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
+          className={`relative ${compact ? "w-20 h-20" : "w-28 h-28"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-center">
         <p
-          className="text-[15px] font-black uppercase leading-[1.1] w-full text-center"
+          className="text-[13px] font-black uppercase leading-[1.15] w-full text-center"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
