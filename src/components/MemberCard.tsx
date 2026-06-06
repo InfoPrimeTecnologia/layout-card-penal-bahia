@@ -203,7 +203,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
   if (side === "back") {
     return (
       <CardShell isOfficer={isOfficer} variant={`${variant}-b`}>
-        <Brand isOfficer={isOfficer} compact />
+        <Brand isOfficer={isOfficer} textOnly />
         <div className="h-px my-3" style={{ background: "var(--gradient-gold)", opacity: 0.5 }} />
 
         <div className="space-y-3">
@@ -226,8 +226,17 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             <Field label="G. SANGUÍNEO" value={data.sangue} />
             <Field label="DOADOR" value={data.doador} />
           </div>
+          {isOfficer ? (
+            <p
+              className="text-[10px] leading-[1.35] text-white/85 italic"
+              style={{ textAlign: "justify", textAlignLast: "justify" }}
+            >
+              Esta credencial identifica seu portador como representante institucional da Penal Bahia, investindo-o nas atribuições inerentes ao cargo ou função nela especificados.
+            </p>
+          ) : null}
           <Field label="VALIDADE" value={data.validade} />
         </div>
+
 
         <div className="mt-auto pt-3 border-t border-white/15 flex items-center justify-center">
           <PBMark size="xl" />
