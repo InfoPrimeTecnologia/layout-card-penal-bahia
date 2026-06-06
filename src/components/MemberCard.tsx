@@ -111,8 +111,8 @@ function CardShell({
 function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div>
-      <p className="text-[8px] tracking-[0.2em] opacity-70 font-bold">{label}</p>
-      <p className="text-xs font-mono">{value || "—"}</p>
+      <p className="text-[9px] tracking-[0.2em] font-black" style={{ color: "oklch(0.88 0.14 85)", textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}>{label}</p>
+      <p className="text-xs font-mono font-bold text-white">{value || "—"}</p>
     </div>
   );
 }
@@ -158,12 +158,12 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
         <img
           src={logo}
           alt="Penal Bahia"
-          className={`relative ${compact ? "w-16 h-16" : "w-20 h-20"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
+          className={`relative ${compact ? "w-20 h-20" : "w-28 h-28"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-center">
         <p
-          className="text-[15px] font-black uppercase leading-[1.1] w-full text-center"
+          className="text-[13px] font-black uppercase leading-[1.15] w-full text-center"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
@@ -218,8 +218,8 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           {isOfficer ? (
             <div>
               <p
-                className="text-center text-[11px] font-black tracking-[0.2em] mb-2 whitespace-nowrap"
-                style={{ color: "oklch(0.85 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+                className="text-center text-[12px] font-black mb-2 whitespace-nowrap"
+                style={{ color: "oklch(0.88 0.14 85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)", letterSpacing: "0.04em", wordSpacing: "0.15em" }}
               >
                 REPRESENTANTE INSTITUCIONAL
               </p>
@@ -236,7 +236,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           </div>
           {isOfficer ? (
             <p
-              className="text-[10px] leading-[1.35] text-white/85 italic"
+              className="text-[10px] leading-[1.35] font-bold text-white"
               style={{ textAlign: "justify", textAlignLast: "justify" }}
             >
               Esta credencial identifica seu portador como representante institucional da Penal Bahia, investindo-o nas atribuições inerentes ao cargo ou função nela especificados.
