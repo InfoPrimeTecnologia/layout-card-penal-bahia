@@ -236,7 +236,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
           </div>
           {isOfficer ? (
             <p
-              className="text-[10px] leading-[1.35] text-white/85 italic"
+              className="text-[10px] leading-[1.35] font-bold text-white"
               style={{ textAlign: "justify", textAlignLast: "justify" }}
             >
               Esta credencial identifica seu portador como representante institucional da Penal Bahia, investindo-o nas atribuições inerentes ao cargo ou função nela especificados.
