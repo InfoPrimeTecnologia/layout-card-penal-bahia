@@ -139,8 +139,7 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            textAlign: "justify",
-            textAlignLast: "justify",
+            textAlign: "center",
             wordSpacing: "-0.04em",
             letterSpacing: "-0.005em",
           }}
