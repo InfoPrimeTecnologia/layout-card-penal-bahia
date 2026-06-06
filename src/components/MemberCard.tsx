@@ -174,7 +174,7 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
           Associação dos
         </p>
         <p
-          className="text-[13px] font-black uppercase leading-[1.15] w-full mt-1 text-center"
+          className="text-[13px] font-black uppercase leading-[1.15] w-full text-center"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
@@ -235,10 +235,7 @@ export function MemberCard({ data, variant, side = "front" }: Props) {
             <Field label="DOADOR" value={data.doador} />
           </div>
           {isOfficer ? (
-            <p
-              className="text-[10px] leading-[1.35] font-bold text-white"
-              style={{ textAlign: "justify", textAlignLast: "justify" }}
-            >
+            <p className="text-[10px] leading-[1.35] font-bold text-white">
               Esta credencial identifica seu portador como representante institucional da Penal Bahia, investindo-o nas atribuições inerentes ao cargo ou função nela especificados.
             </p>
           ) : null}
