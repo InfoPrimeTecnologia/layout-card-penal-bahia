@@ -135,12 +135,10 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
     return (
       <div className="w-full">
         <p
-          className="text-[15px] font-black uppercase leading-[1.15] w-full"
+          className="text-[15px] font-black uppercase leading-[1.15] w-full text-center"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            textAlign: "justify",
-            textAlignLast: "justify",
             wordSpacing: "-0.04em",
             letterSpacing: "-0.005em",
           }}
@@ -151,7 +149,7 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
     );
   }
   return (
-    <div className="flex items-stretch gap-3">
+    <div className="flex items-center gap-3">
       <div className="relative flex-shrink-0">
         <div
           className="absolute inset-0 rounded-full blur-xl opacity-40"
@@ -160,17 +158,15 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
         <img
           src={logo}
           alt="Penal Bahia"
-          className={`relative ${compact ? "w-20 h-20" : "w-24 h-24"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
+          className={`relative ${compact ? "w-16 h-16" : "w-20 h-20"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-center">
         <p
-          className="text-[15px] font-black uppercase leading-[1.1] w-full"
+          className="text-[15px] font-black uppercase leading-[1.1] w-full text-center"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            textAlign: "justify",
-            textAlignLast: "justify",
             wordSpacing: "-0.04em",
             letterSpacing: "-0.01em",
           }}
@@ -178,12 +174,10 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
           Associação dos
         </p>
         <p
-          className="text-[13px] font-black uppercase leading-[1.15] w-full mt-1"
+          className="text-[13px] font-black uppercase leading-[1.15] w-full mt-1 text-center"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            textAlign: "justify",
-            textAlignLast: "justify",
             wordSpacing: "-0.05em",
             letterSpacing: "-0.01em",
           }}
