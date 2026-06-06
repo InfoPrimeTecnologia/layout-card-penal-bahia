@@ -139,7 +139,8 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            textAlign: "center",
+            textAlign: "justify",
+            textAlignLast: "justify",
             wordSpacing: "-0.04em",
             letterSpacing: "-0.005em",
           }}
@@ -159,7 +160,7 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
         <img
           src={logo}
           alt="Penal Bahia"
-          className={`relative ${compact ? "w-24 h-24" : "w-32 h-32"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
+          className={`relative ${compact ? "w-20 h-20" : "w-24 h-24"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-center">
