@@ -163,21 +163,35 @@ function Brand({ compact = false, textOnly = false }: { isOfficer?: boolean; com
           className={`relative ${compact ? "w-24 h-24" : "w-32 h-32"} object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]`}
         />
       </div>
-      <div className="flex-1 min-w-0 flex items-center">
+      <div className="flex-1 min-w-0 flex flex-col justify-center">
         <p
-          className={`${compact ? "text-[12px]" : "text-[13px]"} font-black uppercase leading-[1.1] w-full`}
+          className="text-[15px] font-black uppercase leading-[1.1] w-full"
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
             textAlign: "justify",
             textAlignLast: "justify",
-            wordSpacing: "-0.06em",
+            wordSpacing: "-0.04em",
             letterSpacing: "-0.01em",
           }}
         >
-          Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
+          Associação dos
+        </p>
+        <p
+          className="text-[13px] font-black uppercase leading-[1.15] w-full mt-1"
+          style={{
+            color: "oklch(0.88 0.14 85)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+            textAlign: "justify",
+            textAlignLast: "justify",
+            wordSpacing: "-0.05em",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          Policiais Penais e servidores do sistema penitenciário do estado da Bahia
         </p>
       </div>
+
     </div>
   );
 }
