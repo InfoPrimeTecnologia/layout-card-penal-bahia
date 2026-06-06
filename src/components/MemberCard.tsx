@@ -111,8 +111,8 @@ function CardShell({
 function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div>
-      <p className="text-[8px] tracking-[0.2em] opacity-70 font-bold">{label}</p>
-      <p className="text-xs font-mono">{value || "—"}</p>
+      <p className="text-[9px] tracking-[0.2em] font-black" style={{ color: "oklch(0.88 0.14 85)", textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}>{label}</p>
+      <p className="text-xs font-mono font-bold text-white">{value || "—"}</p>
     </div>
   );
 }
