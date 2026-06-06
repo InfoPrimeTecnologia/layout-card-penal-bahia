@@ -146,13 +146,12 @@ function Brand({ compact = false }: { isOfficer?: boolean; compact?: boolean }) 
       </div>
       <div className="flex-1 min-w-0 flex items-center">
         <p
-          className={`${compact ? "text-[11px]" : "text-[12px]"} font-black uppercase leading-[1.15] w-full`}
+          className={`${compact ? "text-[12px]" : "text-[13px]"} font-black uppercase leading-[1.1] w-full`}
           style={{
             color: "oklch(0.88 0.14 85)",
             textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-            textAlign: "justify",
-            textAlignLast: "justify",
-            wordSpacing: "-0.05em",
+            wordSpacing: "-0.08em",
+            letterSpacing: "-0.01em",
           }}
         >
           Associação dos Policiais Penais e servidores do sistema penitenciário do estado da Bahia
